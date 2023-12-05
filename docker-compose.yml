@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=bla
+      - POSTGRES_PASSWORD=bla
+      - POSTGRES_DB=dlt_example
+    networks:
+      - network_qdrant
+    ports:
+      - "5432:5432"
+
+networks:
+  network_qdrant:
+    name: network_qdrant

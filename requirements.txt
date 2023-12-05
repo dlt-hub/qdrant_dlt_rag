@@ -4,3 +4,6 @@ python-dotenv
 pandas
 camelot-py
 qdrant-client
+psycopg2
+asyncpg
+greenlet
