@@ -1,0 +1,24 @@
+engine_version: 1
+sources:
+  sql_database:
+    is_dirty: false
+    last_commit_sha: 361104239aef7d7dbc91cabbf232363eb541c50e
+    last_commit_timestamp: '2023-11-27T12:36:38+01:00'
+    files:
+      sql_database/__init__.py:
+        commit_sha: 361104239aef7d7dbc91cabbf232363eb541c50e
+        git_sha: 11c3ca98bd2dff19342e5583c60905b9c6e8ada1
+        sha3_256: ab356acc36ad3f5811e0840c28bbdc80ea55e552441bbfb2cb274669958b0068
+      sql_database/README.md:
+        commit_sha: 361104239aef7d7dbc91cabbf232363eb541c50e
+        git_sha: a1990321a937e717f53590d1f3d59ac775621c50
+        sha3_256: 955e751e0c482bc314075a2bb274fb329a1cbdd9cfe1d34a02ae60e5a17253f5
+      sql_database/settings.py:
+        commit_sha: 361104239aef7d7dbc91cabbf232363eb541c50e
+        git_sha: f1aa2d4b264019aff29a4303dca3ca87a683bbe4
+        sha3_256: c78809df0ad03ffe5a2aed03348b3a58d80e8f69a2df2ec892de4480265956a1
+      sql_database/helpers.py:
+        commit_sha: 361104239aef7d7dbc91cabbf232363eb541c50e
+        git_sha: 6cde3a9ff3e7f5d3ddb55ca25c7bbda769cd067d
+        sha3_256: 67caaaaedfb4cd0b21f48a710892b09e4a2fcb76eb1ab135e31d052b2d90c4db
+    dlt_version_constraint: <0.4,>=0.3.5
