@@ -10,6 +10,10 @@ from typing import List
 import dlt
 from dlt.sources.credentials import ConnectionStringCredentials
 from dlt.common import pendulum
+import os
+
+QDRANT_KEY = os.getenv('QDRANT_KEY')
+
 
 from sql_database import sql_database, sql_table
 

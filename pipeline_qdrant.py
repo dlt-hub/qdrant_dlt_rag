@@ -13,7 +13,10 @@ from dlt.common import pendulum
 
 from sql_database import sql_database, sql_table
 from qdrant_client import QdrantClient
+import os
 
+QDRANT_KEY = os.getenv('QDRANT_KEY')
+QDRANT_CLIENT = os.getenv('QDRANT_CLIENT')
 def json_csv():
     # Create a pipeline
     pipeline = dlt.pipeline(
@@ -61,9 +64,8 @@ if __name__ == "__main__":
     #json_csv()
 
     # Connect to Qdrant
-    qdrant_client = QdrantClient(
-        "https://3ad0d7d5-4015-4ccc-b8d5-c09f8121bd2b.us-east4-0.gcp.cloud.qdrant.io",
-        api_key="GP2xb22FrO1cMMBBcaxkGJHzWHBBf86yms7u48Sxjco1LoENfXlo8Q",
+    qdrant_client = QdrantClient( QDRANT_CLIENT,
+        api_key=QDRANT_KEY,
     )
 
     result = qdrant_client.query(

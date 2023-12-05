@@ -6,6 +6,11 @@ from dlt.common import pendulum
 
 from sql_database import sql_database, sql_table
 
+from dotenv import load_dotenv
+import os
+
+QDRANT_KEY = os.getenv('QDRANT_KEY')
+
 
 def load_select_tables_from_database() -> None:
     """Use the sql_database source to reflect an entire database schema and load select tables from it.

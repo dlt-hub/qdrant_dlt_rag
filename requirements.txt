@@ -1,2 +1,6 @@
 sqlalchemy>=1.4
 dlt[duckdb]<0.4,>=0.3.5
+python-dotenv
+pandas
+camelot-py
+qdrant-client
