@@ -7,3 +7,7 @@ qdrant-client
 psycopg2
 asyncpg
 greenlet
+deepeval
+openai
+fastembed
+langchain

@@ -15,7 +15,7 @@ pd.set_option('display.max_colwidth', None)
 async def main():
 
 
-    df = pd.read_csv("sources_full/updated_source1_data.csv")
+    df = pd.read_csv("synthetic_data/updated_source1_data.csv")
 
 
     #PostgreSQL database

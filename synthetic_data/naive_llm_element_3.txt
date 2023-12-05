@@ -1,0 +1,86 @@
+you know this
+name,email,city,Personality Description,Hobbies,In-game Behavior,Backstory,Favorite Gaming Moment
+Brent Robinson,smckay@yahoo.com,South Tracy,"Competitive spirit, always aiming for the top scores",Loves hiking and photography,"Diplomatic and a team player, excels in cooperative tasks","A scientist by day, a virtual adventurer by night",Recalls the epic win in the final seconds of a battle royale game
+Keith Nelson,vanessa12@russell-reynolds.com,Lake Richard,"Calm and patient, prefers long strategy games",Loves hiking and photography,"Diplomatic and a team player, excels in cooperative tasks","A retired superhero, finds solace in virtual battles",Fondly remembers building an entire empire in a strategy game
+,annwhite@hotmail.com,North Tracey,"Calm and patient, prefers long strategy games",Avid reader and writer,"Often the team strategist, prefers support roles","A retired superhero, finds solace in virtual battles",Proud of solving an almost impossible puzzle after many tries
+Christopher Smith,davidvega@hotmail.com,South Nancyfort,"Enjoys puzzle-solving and strategy games, known for quick thinking","Fitness enthusiast, enjoys jogging and gym workouts","The silent assassin, prefers stealth tactics","Former chess champion, now exploring the digital gaming world",Loves the memory of a marathon gaming session with friends
+Teresa Mejia,,Port Harry,"Creative and imaginative, enjoys open-world games where they can explore",Loves hiking and photography,"Often the team strategist, prefers support roles","A scientist by day, a virtual adventurer by night",Loves the memory of a marathon gaming session with friends
+Kristine Parker,peter41@gmail.com,Burnsshire,"Outgoing and adventurous, loves action-packed gaming sessions",Keen on learning new languages,"Aggressive player, always on the front lines","An ex-space marine, now a peace-loving game enthusiast",Fondly remembers building an entire empire in a strategy game
+David Gallagher,michael92@carter-sawyer.com,,"Creative and imaginative, enjoys open-world games where they can explore","Fitness enthusiast, enjoys jogging and gym workouts","Lone wolf, likes to explore and play solo","Former chess champion, now exploring the digital gaming world",Fondly remembers building an entire empire in a strategy game
+Susan Kelly,dandrews@gmail.com,Port Michaelhaven,"Outgoing and adventurous, loves action-packed gaming sessions","Fitness enthusiast, enjoys jogging and gym workouts","The silent assassin, prefers stealth tactics","A scientist by day, a virtual adventurer by night",Recalls the epic win in the final seconds of a battle royale game
+Tiffany Morales,robinsonkimberly@hotmail.com,Ronaldside,"Enjoys puzzle-solving and strategy games, known for quick thinking",Avid reader and writer,"The silent assassin, prefers stealth tactics","An ex-space marine, now a peace-loving game enthusiast",Cherishes the moment when they finally defeated the game's final boss
+Mitchell Wyatt,johnrios@hotmail.com,North Ethanton,"Enjoys puzzle-solving and strategy games, known for quick thinking",Loves hiking and photography,"Aggressive player, always on the front lines","A scientist by day, a virtual adventurer by night",Proud of solving an almost impossible puzzle after many tries
+,robinweiss@guerrero-martin.com,New John,"Creative and imaginative, enjoys open-world games where they can explore",Keen on learning new languages,"The silent assassin, prefers stealth tactics","A scientist by day, a virtual adventurer by night",Fondly remembers building an entire empire in a strategy game
+Erin Mayer,yperkins@allen-benson.biz,South Amy,"Calm and patient, prefers long strategy games",Loves hiking and photography,"The silent assassin, prefers stealth tactics","A retired superhero, finds solace in virtual battles",Recalls the epic win in the final seconds of a battle royale game
+Angela Nguyen,shermanashley@edwards-johnson.org,Port Jason,"Enjoys puzzle-solving and strategy games, known for quick thinking",Keen on learning new languages,"Often th
+
+
+
+
+
+and this:
+email,phone_number,company,Professional Summary,Communication Preference,Email Analysis
+kathrynmorris@yahoo.com,001-771-400-7699x97766,Wilkinson-Glover,"Operations guru, ensuring smooth processes",Favors quick phone calls for immediate resolution,"Simple and memorable email, easy to recall"
+derrickoneill@gmail.com,(503)108-5391,Li-Taylor,"Human resources specialist, focusing on talent development",Favors quick phone calls for immediate resolution,"Simple and memorable email, easy to recall"
+patelallison@richardson.biz,+1-073-733-1139,"Lyons, Long and Leach",Marketing and sales expert,Prefers email communication for detailed discussions,"Creative email address, shows a personal touch"
+dmccormick@yahoo.com,+1-383-732-6309x24188,Johnson-Marshall,Marketing and sales expert,Prefers email communication for detailed discussions,"Simple and memorable email, easy to recall"
+leslie21@gmail.com,334-583-7994x14612,"Trevino, Shepherd and Myers",Marketing and sales expert,Likes text messages for instant updates,Has a professional and straightforward email address
+ryan30@gmail.com,098-736-8757,Clark Group,Finance professional with a knack for numbers,Prefers email communication for detailed discussions,Formal and business-oriented email style
+peteralexander@jones-lopez.com,744.447.7535,Williams-Adams,Finance professional with a knack for numbers,Uses both email and phone calls for thorough communication,"Creative email address, shows a personal touch"
+kelly73@yahoo.com,953-045-6823x384,"Perez, Berry and Williams",Experienced in technology and innovation,Likes text messages for instant updates,Has a professional and st
+
+
+
+
+you know this too:
+name,address,date_of_birth,description
+Mary Carroll,"863 Benjamin Forest Apt. 693
+Wheelerburgh, KS 62644",1968-05-23,"Mary Carroll, born on 1968-05-23, currently resides at 863 Benjamin Forest Apt. 693
+Wheelerburgh, KS 62644."
+Danielle Blankenship,"USCGC Rodriguez
+FPO AE 20503",1975-02-26,"Danielle Blankenship, born on 1975-02-26, currently resides at USCGC Rodriguez
+FPO AE 20503."
+Jonathan Giles,"64431 Nancy Square Suite 730
+Jonathanchester, AL 83836",1910-02-13,"Jonathan Giles, born on 1910-02-13, currently resides at 64431 Nancy Square Suite 730
+Jonathanchester, AL 83836."
+William Leonard,"Unit 0978 Box 6659
+DPO AP 19869",1957-07-27,"William Leonard, born on 1957-07-27, currently resides at Unit 0978 Box 6659
+DPO AP 19869."
+Gordon Weiss,"577 Moreno Circle Suite 224
+Duncanstad, AZ 48563",1992-10-27,"Gordon Weiss, born on 1992-10-27, currently resides at 577 Moreno Circle Suite 224
+Duncanstad, AZ 48563."
+Haley Davis,"3594 Joshua Brooks
+West Wendy, AL 57390",1945-07-27,"Haley Davis, born on 1945-07-27, currently resides at 3594 Joshua Brooks
+West Wendy, AL 57390."
+Kurt Espinoza,"34587 Stone Centers Apt. 638
+Michellestad, MT 39767",1973-05-30,"Kurt Espinoza, born on 1973-05-30, currently resides at 34587 Stone Centers Apt. 638
+Michellestad, MT 39767."
+Holly Nunez,"6556 Robert Fall Apt. 167
+Crosshaven, MN 56819",1960-02-28,"Holly Nunez, born on 1960-02-28, currently resides at 6556 Robert Fall Apt. 167
+Crosshaven, MN 56819."
+,"6911 Madeline Freeway Apt. 475
+Lake Norma, FL 16140",1995-08-02,"nan, born on 1995-08-02, currently resides at 6911 Madeline Freeway Apt. 475
+Lake Norma, FL 16140."
+Robert Winters,"PSC 4754, Box 0419
+APO AP 36496",1966-03-14,"Robert Winters, born on 1966-03-14, currently resides at PSC 4754, Box 0419
+APO AP 36496."
+Johnny Wilson,"1461 Lisa Oval
+Meganport, WI 92270",2019-02-22,"Johnny Wilson, born on 2019-02-22, currently resides at 1461 Lisa Oval
+Meganport, WI 92270."
+Stephanie Coleman,"102 Brent Stravenue
+Port Kellybury, HI 02078",1980-10-26,"Stephanie Coleman, born on 1980-10-26, currently resides at 102 Brent Stravenue
+Port Kellybury, HI 02078."
+David Perkins,"753 Simpson Falls Apt. 641
+Alexanderfurt, MI 71666",1944-03-25,"David Perkins, born on 1944-03-25, currently resides at 753 Simpson Falls Apt. 641
+Alexanderfurt, MI 71666."
+Kristy Johnson,"43229 Nicholas Squares
+Alyssaville, MO 86355",1973-01-07,"Kristy Johnson, born on 1973-01-07, currently resides at 43229 Nicholas Squares
+Alyssaville, MO 86355."
+Dwayne Baker,"Unit 6348 Box 9974
+DPO AE 69219",1915-04-05,"Dwayne Baker, born on 1915-04-05, currently resides at Unit 6348 Box 9974
+DPO AE 69219."
+David Nelson,"71513 Chen Summit Suite 639
+Joshuashire, MI 99696",1914-12-15,"David Nelson, born on 1914-12-15, currently resides at 71513 Chen Summit Suite 639
+Joshuashire, MI 99696."
+Jimmy Clayton,"PSC 2545, Box 6738
+APO AA 18207",1991-02-15,"Jimmy Clayton, born on 1991-02-15,
