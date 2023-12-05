@@ -4,7 +4,8 @@ secrets.toml
 .env
 /local_cache
 /myenv
-/test_env
+/test_venv
+.dlt
 **/__pycache__/
 **/*.py[cod]
 **/*$py.class
