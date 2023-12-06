@@ -115,50 +115,85 @@ qa_pairs_example = {
 }
 
 
-def process_collection(collection_type, dataset):
-    if collection_type == "naive_llm":
-        file_number = dataset["dataset"]
-        file_name = f"naive_llm_dataset_{file_number}.txt"
-        file_path = os.path.join("synthetic_data", file_name)
+import os
 
-        # Load the file here
+def process_collection(dataset, collection_type=None):
+    """
+    Process a collection based on the specified collection type. If the collection type is not provided,
+    it defaults to iterating through known types.
+
+    Parameters:
+    - dataset: The dataset information.
+    - collection_type (optional): The type of collection to process. If not provided, a default iteration is used.
+
+    Returns:
+    Tuple of file name and file content.
+    """
+    if collection_type:
+        file_number = dataset["dataset"]
+        file_name = f"{collection_type}_dataset_{file_number}.txt"
+        file_path = os.path.join("synthetic_data", file_name)
         with open(file_path, 'r') as file:
             file_content = file.read()
             return file_name, file_content
-    elif collection_type == "unstructured":
-        pass
-    elif collection_type == "structured":
-        pass
+
+    # Default iteration when collection_type is not provided
+    for ctype in ["naive_llm", "unstructured", "structured"]:
+        file_number = dataset["dataset"]
+        file_name = f"{ctype}_dataset_{file_number}.txt"
+        file_path = os.path.join("synthetic_data", file_name)
+        try:
+            with open(file_path, 'r') as file:
+                file_content = file.read()
+                return file_name, file_content
+        except FileNotFoundError:
+            continue
+
+    raise ValueError("Unable to process the dataset with given collection types")
+
 
 
 def evaluate_qa_pairs(
     qa_pairs: Dict[str, Tuple[str, Optional[str]]],
-    collections: list):
+    collections: list,
+    specific_collection_type: str = None):
+    """
+    Evaluates QA pairs against provided collections. Optionally, evaluates against a specific collection type.
 
+    Parameters:
+    - qa_pairs (Dict): A dictionary of question-answer pairs.
+    - collections (list): A list of collections to evaluate against.
+    - specific_collection_type (str, optional): Specific collection type to evaluate against.
+      If None, evaluates against all types in the collections list.
+
+    Returns:
+    - List of dictionaries containing evaluation results.
+    """
     results = []
     for collection in collections:
         for collection_type, datasets in collection.items():
+            if specific_collection_type and collection_type != specific_collection_type:
+                continue
+
             for dataset in datasets:
-                file_name, context = process_collection(collection_type, dataset)
+                file_name, context = process_collection(dataset, collection_type)
                 for query, (expected_output, retrieval_context) in qa_pairs.items():
-                    print("Query, context that is being run", query, expected_output, collection_type)
                     score = eval_test(query, expected_output, context, collection_type)
                     result_details = {
                         "question": query,
                         "expected_answer": expected_output,
                         "score": score,
                         "file_name": file_name,
-                        "eval_type": collection_type # Assuming collection_type is the file name
+                        "eval_type": collection_type
                     }
                     results.append(result_details)
-                    print(result_details)
-
     return results
+
 
 
 collections = [
     {"naive_llm": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]},
-    # {"unstructured": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]},
+    {"unstructured": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]},
     # {"structured": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]}
 ]
 
