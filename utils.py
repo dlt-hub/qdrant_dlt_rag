@@ -41,6 +41,6 @@ def delete_all_collections(qdrant_client):
         logging.error(f"Error retrieving collections: {e}")
 
 # Example usage
-# delete_all_collections(your_qdrant_client_instance)
+delete_all_collections(qdrant_client=qdrant_client)
 
 

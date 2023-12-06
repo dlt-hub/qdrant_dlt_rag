@@ -23,8 +23,8 @@ def json_csv_sql_pipeline():
     df_sql = pd.DataFrame(table_list)
 
     merged_json_csv = pd.merge(df_json, df_csv, on="Unique ID", how="outer")
-    merged_json_csv.reset_index(drop=True, inplace=True)
     merged_json_csv_sql = pd.merge(merged_json_csv, df_sql, on="Unique ID", how="outer")
+    merged = merged_json_csv_sql.to_dict(orient="records")
 
     pipeline = dlt.pipeline(
         pipeline_name='structured_dataset_3_json_csv_sql', destination='qdrant', dataset_name='structured_dataset_3'
@@ -34,7 +34,7 @@ def json_csv_sql_pipeline():
     
     info = pipeline.run(
         qdrant_adapter(
-            data_json,
+            merged,
             embed=column_names,
         )
     )

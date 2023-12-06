@@ -16,17 +16,17 @@ def json_csv_pipeline():
     df_csv = pd.read_csv("synthetic_data/structured_dataset_3.csv")
 
     merged_df = pd.merge(df_json, df_csv, on="Unique ID", how="outer")
-    merged_df.reset_index(drop=True, inplace=True)
+    merged = merged_df.to_dict(orient="records")
 
     pipeline = dlt.pipeline(
         pipeline_name='structured_dataset_2_json_csv', destination='qdrant', dataset_name='structured_dataset_2'
     )
 
     column_names = merged_df.columns.tolist()
-    
+
     info = pipeline.run(
         qdrant_adapter(
-            data_json,
+            merged,
             embed=column_names,
         )
     )
