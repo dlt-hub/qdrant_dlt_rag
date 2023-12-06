@@ -81,7 +81,11 @@ def eval_test(
 ):
     logging.info("Generating chatgpt output")
     if context is None:
-        context = qdrant_client(collection_name=qdrant_collection_name, original_query=query)
+        try:
+            context = qdrant_client(collection_name=qdrant_collection_name, original_query=query)
+        except:
+            pass
+
     result_output = generate_chatgpt_output(query, str(context))
 
     logging.info("Moving on with chatgpt output")
@@ -93,38 +97,34 @@ def eval_test(
     )
     metric = AnswerRelevancyMetric()
     metric.measure(test_case)
+    print(metric.score)
     return metric.score
 
 qa_pairs_example = {
     "What is the capital of France?": ("Paris", None),
     "Who wrote 'To Kill a Mockingbird'?": ("Harper Lee", None),
-    "What is the chemical formula for water?": ("H2O", None),
-    "Who painted the Mona Lisa?": ("Leonardo da Vinci", None),
-    "What is the speed of light?": ("299,792,458 meters per second", None),
-    "What is the largest mammal?": ("Blue Whale", None),
-    "Who discovered penicillin?": ("Alexander Fleming", None),
-    "What year did World War II end?": ("1945", None),
-    "Who is the CEO of Tesla?": ("Elon Musk", None),
-    # Note: This information is based on the status as of April 2023.
-    "What is the currency of Japan?": ("Yen", None)
+    # "What is the chemical formula for water?": ("H2O", None),
+    # "Who painted the Mona Lisa?": ("Leonardo da Vinci", None),
+    # "What is the speed of light?": ("299,792,458 meters per second", None),
+    # "What is the largest mammal?": ("Blue Whale", None),
+    # "Who discovered penicillin?": ("Alexander Fleming", None),
+    # "What year did World War II end?": ("1945", None),
+    # "Who is the CEO of Tesla?": ("Elon Musk", None),
+    # # Note: This information is based on the status as of April 2023.
+    # "What is the currency of Japan?": ("Yen", None)
 }
 
-collections = [
-    {"naive_llm": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]},
-    {"unstructured": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]},
-    {"structured": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]}
-]
 
 def process_collection(collection_type, dataset):
     if collection_type == "naive_llm":
         file_number = dataset["dataset"]
-        file_name = f"synthetic_data/naive_llm_element{file_number}.txt"
+        file_name = f"naive_llm_dataset_{file_number}.txt"
         file_path = os.path.join("synthetic_data", file_name)
 
         # Load the file here
         with open(file_path, 'r') as file:
             file_content = file.read()
-            return file_content
+            return file_name, file_content
     elif collection_type == "unstructured":
         pass
     elif collection_type == "structured":
@@ -139,47 +139,30 @@ def evaluate_qa_pairs(
     for collection in collections:
         for collection_type, datasets in collection.items():
             for dataset in datasets:
-                context = process_collection(collection_type, dataset)
+                file_name, context = process_collection(collection_type, dataset)
                 for query, (expected_output, retrieval_context) in qa_pairs.items():
-                    test_result = eval_test(query, expected_output, context, collection_type)
-                    results.append(test_result)
+                    print("Query, context that is being run", query, expected_output, collection_type)
+                    score = eval_test(query, expected_output, context, collection_type)
+                    result_details = {
+                        "question": query,
+                        "expected_answer": expected_output,
+                        "score": score,
+                        "file_name": file_name,
+                        "eval_type": collection_type # Assuming collection_type is the file name
+                    }
+                    results.append(result_details)
+                    print(result_details)
+
     return results
 
+
+collections = [
+    {"naive_llm": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]},
+    # {"unstructured": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]},
+    # {"structured": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]}
+]
+
+# eval_test(query="What is the capital of France?", expected_output="Paris", qdrant_collection_name="naive_llm_dataset_1.txt")
+
 evaluate_qa_pairs(qa_pairs_example, collections)
-
-    # If you want to run the test
-    # test_result = run_test(test_case, metrics=[metric])
-    # print(test_result)
-    # print(test_result)
-
-    # dataset = EvaluationDataset(test_cases=[test_case,test_case_two])
-    #
-    #
-    # ff = dataset.evaluate([metric])
-    # print(ff)
-
-    # def test_result_to_dict(test_result):
-    #     return {
-    #         "success": test_result.success,
-    #         "score": test_result.score,
-    #         "metric_name": test_result.metric_name,
-    #         "query": test_result.query,
-    #         "output": test_result.output,
-    #         "expected_output": test_result.expected_output,
-    #         "metadata": test_result.metadata,
-    #         "context": test_result.context,
-    #     }
-    #
-    # rr = metric.measure(LLMTestCase)
-    # print(rr.)
-    # ss = assert_test(test_case, metrics=[metric])
-    # print(ss)
-    # test_result_dict = []
-    # for test in test_result:
-    #     print(test)
-    #     # test_result_it = test_result_to_dict(test)
-    #     # test_result_dict.append(test_result_it)
-    # return test_result_dict
-
-
 
