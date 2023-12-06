@@ -2,7 +2,6 @@
 from dlt.destinations.qdrant import qdrant_adapter
 from dlt.common import json
 import pandas as pd
-import camelot
 import dlt
 from sqlalchemy import create_engine
 from typing import List
