@@ -42,5 +42,3 @@ def delete_all_collections(qdrant_client):
 
 # Example usage
 delete_all_collections(qdrant_client=qdrant_client)
-
-

@@ -1,0 +1,141 @@
+[
+    {
+        "UserID": "268afece-189e-474a-b59b-8f3b1fa4e666",
+        "Address": {
+            "City": "South Amanda",
+            "Street": "Lynch Village",
+            "House": "97689"
+        },
+        "Purchases": {
+            "Shoes": 2,
+            "Jeans": 5,
+            "Shirts": 5
+        }
+         
+    },
+    {
+        "UserID": "fea9bf19-f994-477b-9e8f-d0129d4541a7",
+        "Address": {
+            "City": "Millerland",
+            "Street": "Deborah Lock",
+            "House": "7656"
+        },
+        "Purchases": {
+            "Shoes": 12,
+            "Jeans": 7,
+            "Shirts": 4
+        }
+    },
+    {
+        "UserID": "7b99b1f9-3974-4e95-b219-2b49035d4c27",
+        "Address": {
+            "City": "Priceshire",
+            "Street": "Curtis Mountains",
+            "House": "054"
+        },
+        "Purchases": {
+            "Shoes": 13,
+            "Jeans": 7,
+            "Shirts": 4
+        }
+    },
+    {
+        "UserID": "1872b293-2b75-4a64-9a13-30be64998ddb",
+        "Address": {
+            "City": "Grayside",
+            "Street": "Myers Stream",
+            "House": "75134"
+        },
+        "Purchases": {
+            "Shoes": 10,
+            "Jeans": 10,
+            "Shirts": 10
+        }
+         
+    },
+    {
+        "UserID": "1f2cda6e-4839-48ad-b7bb-863cda08a490",
+        "Address": {
+            "City": "New Yolandafurt",
+            "Street": "Anthony Landing",
+            "House": "26312"
+        },
+        "Purchases": {
+            "Shoes": 6,
+            "Jeans": 8,
+            "Shirts": 2
+        }
+         
+    },
+    {
+        "UserID": "cb2c45cb-24a8-461c-9b5e-3eeda835c89e",
+        "Address": {
+            "City": "Ashleyton",
+            "Street": "Williams Spur",
+            "House": "778"
+        },
+        "Purchases": {
+            "Shoes": 0,
+            "Jeans": 1,
+            "Shirts": 1
+        }
+         
+    },
+    {
+        "UserID": "a2f97e37-3c4a-4297-b713-d58699a56cb7",
+        "Address": {
+            "City": "Ulaanbaatar",
+            "Street": "Main",
+            "House": "1"
+        },
+        "Purchases": {
+            "Shoes": 0,
+            "Jeans": 1,
+            "Shirts": 1
+        }
+         
+    },
+
+    {
+        "UserID": "a37d91a6-5236-4a58-9490-a531c2dc8841",
+        "Address": {
+            "City": "East Michael",
+            "Street": "Hamilton Squares",
+            "House": "02306"
+        },
+        "Purchases": {
+            "Shoes": 8,
+            "Jeans": 10,
+            "Shirts": 10
+        }
+         
+    },
+    {
+        "UserID": "db3a1a7e-9036-420e-a80e-861e35604406",
+        "Address": {
+            "City": "Zacharyville",
+            "Street": "Mcdaniel Road",
+            "House": "91527"
+        },
+        "Purchases": {
+            "Shoes": 2,
+            "Jeans": 10,
+            "Shirts": 14
+        }
+         
+    },
+    {
+        "UserID": "a91471af-c1d3-461e-a736-f0b14db612cb",
+        "Address": {
+            "City": "Port Richardview",
+            "Street": "Brown Lodge",
+            "House": "3369"
+        },
+        "Purchases": {
+            "Shoes": 9,
+            "Jeans": 7,
+            "Shirts": 2
+        }
+         
+    }
+]

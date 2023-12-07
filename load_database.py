@@ -15,7 +15,7 @@ pd.set_option('display.max_colwidth', None)
 async def main():
 
 
-    df = pd.read_csv("synthetic_data/structured_dataset_1.csv")
+    df = pd.read_csv("synthetic_data_3/structured_dataset_1.csv")
 
     #PostgreSQL database
     username = os.getenv('POSTGRES_USER')

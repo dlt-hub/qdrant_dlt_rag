@@ -8,26 +8,27 @@ import dlt
 
 from sql_database import sql_database
 
+
 def json_csv_sql_pipeline():
     # Json
-    with open("./synthetic_data/structured_dataset_2.json", 'rb') as file:
+    with open("./synthetic_data_3/structured_dataset_2.json", 'rb') as file:
         data_json = json.load(file)
-    df_json = pd.DataFrame(data_json)
+    df_json = pd.json_normalize(data_json, sep='_')
 
     # Csv 
-    df_csv = pd.read_csv("synthetic_data/structured_dataset_3.csv")
+    df_csv = pd.read_csv("synthetic_data_3/structured_dataset_3.csv")
 
     # Sql
     source = sql_database(schema='public')
     table_list = source.resources['base']
     df_sql = pd.DataFrame(table_list)
 
-    merged_json_csv = pd.merge(df_json, df_csv, on="Unique ID", how="outer")
-    merged_json_csv_sql = pd.merge(merged_json_csv, df_sql, on="Unique ID", how="outer")
+    merged_json_csv = pd.merge(df_json, df_csv, on="UserID", how="outer")
+    merged_json_csv_sql = pd.merge(merged_json_csv, df_sql, on="UserID", how="outer")
     merged = merged_json_csv_sql.to_dict(orient="records")
 
     pipeline = dlt.pipeline(
-        pipeline_name='structured_dataset_3_json_csv_sql', destination='qdrant', dataset_name='structured_dataset_3'
+        pipeline_name='pipeline_3', destination='qdrant', dataset_name='structured_dataset_3'
     )
 
     column_names = merged_json_csv_sql.columns.tolist()

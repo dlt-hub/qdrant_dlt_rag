@@ -1,0 +1,27 @@
+You know this:
+
+name,email,city,Personality,Hobbies,In-game Behavior,Backstory,Favorite Gaming Moment,Unique ID
+Brent Robinson,smckay@yahoo.com,South Tracy,exploration strategy retro arcade epic,puzzle virtual retro mystery strategy,puzzle arcade epic quest strategy,epic arcade strategy tactical quest,tactical fantasy quest legendary virtual,1
+Keith Nelson,vanessa12@russell-reynolds.com,Lake Richard,legendary arcade tactical adventure retro,puzzle challenge retro mystery exploration,mystery exploration futuristic arcade fantasy,futuristic quest arcade epic challenge,exploration mystery strategy arcade retro,2
+Unknown,annwhite@hotmail.com,North Tracey,virtual strategy epic retro quest,challenge quest adventure retro arcade,arcade tactical retro fantasy exploration,virtual mystery arcade quest strategy,fantasy quest retro virtual tactical,3
+Christopher Smith,davidvega@hotmail.com,South Nancyfort,legendary arcade exploration virtual epic,epic tactical exploration mystery futuristic,legendary adventure puzzle arcade challenge,quest retro fantasy epic exploration,arcade quest adventure exploration futuristic,4
+Teresa Mejia,Unknown,Port Harry,strategy puzzle quest futuristic adventure,strategy arcade adventure fantasy challenge,puzzle challenge tactical strategy exploration,puzzle quest mystery exploration fantasy,challenge exploration epic retro strategy,5
+Kristine Parker,peter41@gmail.com,Burnsshire,fantasy strategy virtual challenge mystery,strategy virtual retro futuristic quest,adventure virtual legendary tactical arcade,tactical fantasy adventure quest puzzle,epic exploration retro quest fantasy,6
+David Gallagher,michael92@carter-sawyer.com,Unknown,epic tactical strategy virtual retro,exploration epic tactical futuristic arcade,mystery epic exploration retro challenge,arcade exploration virtual mystery adventure,quest legendary adventure mystery challenge,7
+Susan Kelly,dandrews@gmail.com,Port Michaelhaven,retro mystery quest legendary strategy,retro mystery challenge futuristic quest,strategy arcade adventure mystery retro,tactical epic legendary arcade puzzle,quest puzzle virtual futuristic tactical,8
+Tiffany Morales,robinsonkimberly@hotmail.com,Ronaldside,epic quest fantasy arcade mystery,futuristic retro tactical fantasy exploration,fantasy adventure strategy exploration quest,puzzle legendary futuristic mystery fantasy,tactical epic puzzle legendary retro,9
+Mitchell Wyatt,johnrios@hotmail.com,North Ethanton,futuristic arcade strategy virtual mystery,exploration quest fantasy legendary futuristic,puzzle strategy futuristic legendary fantasy,epic exploration legendary tactical quest,tactical retro challenge legendary virtual,10
+
+
+and this:
+Unique ID,Zodiac Sign,Personality Description,Childhood Information,Living Conditions
+1,Libra,exploration strategy retro arcade epic,"Spent most of the time in a small town, loved exploring.",Lives in a modern apartment in the city center.
+2,Aries,legendary arcade tactical adventure retro,Had a quiet childhood in the countryside.,Lives in a modern apartment in the city center.
+3,Leo,virtual strategy epic retro quest,"Spent most of the time in a small town, loved exploring.",Lives in a shared apartment with friends.
+4,Aries,legendary arcade exploration virtual epic,"Raised in a suburban neighborhood, involved in many outdoor activities.",Lives in a modern apartment in the city center.
+5,Virgo,strategy puzzle quest futuristic adventure,"Raised in a suburban neighborhood, involved in many outdoor activities.",Owns a spacious farmhouse in the countryside.
+6,Gemini,fantasy strategy virtual challenge mystery,"Spent most of the time in a small town, loved exploring.",Owns a spacious farmhouse in the countryside.
+7,Taurus,epic tactical strategy virtual retro,"Spent most of the time in a small town, loved exploring.",Lives in a modern apartment in the city center.
+8,Leo,retro mystery quest legendary strategy,"Spent most of the time in a small town, loved exploring.",Lives in a modern apartment in the city center.
+9,Libra,epic quest fantasy arcade mystery,Had a quiet childhood in the countryside.,Lives in a shared apartment with friends.
+10,Scorpio,futuristic arcade strategy virtual mystery,"Had a nomadic childhood, traveled to various places.",Lives in a shared apartment with friends.

@@ -42,7 +42,7 @@ def load_and_process_documents(file_path: Optional[str] = None):
         return None
 
     try:
-        loader = TextLoader(f"synthetic_data/{file_path}")
+        loader = TextLoader(f"synthetic_data_3/{file_path}")
         documents = loader.load()
     except FileNotFoundError:
         logging.error(f"File not found: {file_path}")
@@ -93,7 +93,7 @@ def process_files_in_dict(dict_to_iterate: Dict[str, List[Dict[str, int]]]):
                 file_path_key = list(v)[0]  # The key, e.g., 'dataset'
                 file_path_value = str(v[file_path_key])  # The value corresponding to the key, e.g., '1'
                 file_path = f"{key}_{file_path_key}_{file_path_value}.txt"
-                with open("synthetic_data/" +file_path, 'r') as file:
+                with open("synthetic_data_3/" +file_path, 'r') as file:
                     file_content = file.read()
                     load_and_process_documents(file_path=file_path)
             except FileNotFoundError:
