@@ -1,16 +1,8 @@
-you know:
+you are a data engineer and you have some info about:
 UserID,Name,Country,PurchaseCount,TotalSpend,PrimaryTypeOfPurchases,LastPurchaseDate
 268afece-189e-474a-b59b-8f3b1fa4e666,Andrew Knox,Bolivia,12,351.49,Jeans,2023-10-22
 fea9bf19-f994-477b-9e8f-d0129d4541a7,Philip Rogers,Congo,3,610.0799999999999,Shoes,2023-11-08
 7b99b1f9-3974-4e95-b219-2b49035d4c27,Michael Miller,Lithuania,23,1271.72,Shoes,2023-06-14
-1872b293-2b75-4a64-9a13-30be64998ddb,Jennifer Vasquez,Senegal,24,1489.8899999999999,Jeans,2023-07-02
-1f2cda6e-4839-48ad-b7bb-863cda08a490,Michael Cook,Barbados,30,1166.38,Jeans,2023-06-27
-cb2c45cb-24a8-461c-9b5e-3eeda835c89e,Daniel Wolfe,Georgia,16,1115.56,Shirts,2023-02-11
-a2f97e37-3c4a-4297-b713-d58699a56cb7,Sarah Walsh,Norway,2,723.59,Shirts,2023-05-20
-a37d91a6-5236-4a58-9490-a531c2dc8841,Roy Love,Congo,28,307.56000000000006,Shirts,2023-10-27
-db3a1a7e-9036-420e-a80e-861e35604406,Nathaniel Walker,Honduras,26,1768.1100000000001,Shirts,2023-06-29
-a91471af-c1d3-461e-a736-f0b14db612cb,Bradley Tanner,Philippines,18,323.58,Shoes,2023-05-13
-
 
 and this:
 
@@ -54,106 +46,9 @@ and this:
             "Jeans": 7,
             "Shirts": 4
         }
-    },
-    {
-        "UserID": "1872b293-2b75-4a64-9a13-30be64998ddb",
-        "Address": {
-            "City": "Grayside",
-            "Street": "Myers Stream",
-            "House": "75134"
-        },
-        "Purchases": {
-            "Shoes": 10,
-            "Jeans": 10,
-            "Shirts": 10
-        }
-         
-    },
-    {
-        "UserID": "1f2cda6e-4839-48ad-b7bb-863cda08a490",
-        "Address": {
-            "City": "New Yolandafurt",
-            "Street": "Anthony Landing",
-            "House": "26312"
-        },
-        "Purchases": {
-            "Shoes": 6,
-            "Jeans": 8,
-            "Shirts": 2
-        }
-         
-    },
-    {
-        "UserID": "cb2c45cb-24a8-461c-9b5e-3eeda835c89e",
-        "Address": {
-            "City": "Ashleyton",
-            "Street": "Williams Spur",
-            "House": "778"
-        },
-        "Purchases": {
-            "Shoes": 0,
-            "Jeans": 1,
-            "Shirts": 1
-        }
-         
-    },
-    {
-        "UserID": "a2f97e37-3c4a-4297-b713-d58699a56cb7",
-        "Address": {
-            "City": "Ulaanbaatar",
-            "Street": "Main",
-            "House": "1"
-        },
-        "Purchases": {
-            "Shoes": 0,
-            "Jeans": 1,
-            "Shirts": 1
-        }
-         
-    },
-
-    {
-        "UserID": "a37d91a6-5236-4a58-9490-a531c2dc8841",
-        "Address": {
-            "City": "East Michael",
-            "Street": "Hamilton Squares",
-            "House": "02306"
-        },
-        "Purchases": {
-            "Shoes": 8,
-            "Jeans": 10,
-            "Shirts": 10
-        }
-         
-    },
-    {
-        "UserID": "db3a1a7e-9036-420e-a80e-861e35604406",
-        "Address": {
-            "City": "Zacharyville",
-            "Street": "Mcdaniel Road",
-            "House": "91527"
-        },
-        "Purchases": {
-            "Shoes": 2,
-            "Jeans": 10,
-            "Shirts": 14
-        }
-         
-    },
-    {
-        "UserID": "a91471af-c1d3-461e-a736-f0b14db612cb",
-        "Address": {
-            "City": "Port Richardview",
-            "Street": "Brown Lodge",
-            "House": "3369"
-        },
-        "Purchases": {
-            "Shoes": 9,
-            "Jeans": 7,
-            "Shirts": 2
-        }
-         
     }
+
+
 ]
 
 
@@ -161,11 +56,3 @@ this too:
 UserID,SpendOnShoes,SpendOnJeans,SpendOnShirts,Feedback,Personality
 268afece-189e-474a-b59b-8f3b1fa4e666,184.75,17.98,148.76,Really satisfied with the quality and durability.,Friendly and always has a smile.
 fea9bf19-f994-477b-9e8f-d0129d4541a7,120.15,276.11,213.82,The colors are vibrant and the fit is perfect!,"A bit reserved, but very polite."
-7b99b1f9-3974-4e95-b219-2b49035d4c27,584.5,311.52,375.7,"Good value for money, but delivery was slower than expected.","Always in a hurry, but appreciative."
-1872b293-2b75-4a64-9a13-30be64998ddb,211.43,618.67,659.79,"Not as comfortable as I hoped, but looks great.","Quiet, doesn’t interact much."
-1f2cda6e-4839-48ad-b7bb-863cda08a490,191.57,714.7,260.11,"Impressed with the customer service, but the product is average.",Very inquisitive and asks many questions.
-cb2c45cb-24a8-461c-9b5e-3eeda835c89e,367.05,494.89,253.62,"Material is top-notch, but sizes run a bit small.",Has a great sense of humor and loves to chat.
-a2f97e37-3c4a-4297-b713-d58699a56cb7,95.97,219.9,407.72,"Great for everyday wear, though a bit pricey.",Decisive and knows exactly what they want.
-a37d91a6-5236-4a58-9490-a531c2dc8841,267.11,11.16,29.29,"Stylish and modern, but the material feels a bit cheap.",Tends to be indecisive and needs recommendations.
-db3a1a7e-9036-420e-a80e-861e35604406,302.32,701.16,764.63,"Very comfortable, but the colors fade after washing.","Loyal customer, visits frequently."
-a91471af-c1d3-461e-a736-f0b14db612cb,250.84,72.44,0.3,"Functional and durable, but lacks variety in styles.",Very detailed-oriented and specific in their needs.
