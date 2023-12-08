@@ -1,22 +1,23 @@
 UserID,Name,Country,PurchaseCount,TotalSpend,PrimaryTypeOfPurchases,LastPurchaseDate
 268afece-189e-474a-b59b-8f3b1fa4e666,Andrew Knox,Bolivia,12,351.49,Jeans,2023-10-22
 fea9bf19-f994-477b-9e8f-d0129d4541a7,Philip Rogers,Congo,3,610.0799999999999,Shoes,2023-11-08
-7b99b1f9-3974-4e95-b219-2b49035d4c27,Michael Miller,Lithuania,23,1271.72,Shoes,2023-06-14
-1872b293-2b75-4a64-9a13-30be64998ddb,Jennifer Vasquez,Senegal,24,1489.8899999999999,Jeans,2023-07-02
-1f2cda6e-4839-48ad-b7bb-863cda08a490,Michael Cook,Barbados,30,1166.38,Jeans,2023-06-27
-cb2c45cb-24a8-461c-9b5e-3eeda835c89e,Daniel Wolfe,Georgia,16,1115.56,Shirts,2023-02-11
+
 a2f97e37-3c4a-4297-b713-d58699a56cb7,Sarah Walsh,Norway,2,723.59,Shirts,2023-05-20
 a37d91a6-5236-4a58-9490-a531c2dc8841,Roy Love,Congo,28,307.56000000000006,Shirts,2023-10-27
 db3a1a7e-9036-420e-a80e-861e35604406,Nathaniel Walker,Honduras,26,1768.1100000000001,Shirts,2023-06-29
 a91471af-c1d3-461e-a736-f0b14db612cb,Bradley Tanner,Philippines,18,323.58,Shoes,2023-05-13
-UserID,Address,Purchases
-268afece-189e-474a-b59b-8f3b1fa4e666,"{'City': 'South Amanda', 'Street': 'Lynch Village', 'House': '97689'}","{'Shoes': 2, 'Jeans': 5, 'Shirts': 5}"
-fea9bf19-f994-477b-9e8f-d0129d4541a7,"{'City': 'Millerland', 'Street': 'Deborah Lock', 'House': '7656'}","{'Shoes': 12, 'Jeans': 7, 'Shirts': 4}"
-7b99b1f9-3974-4e95-b219-2b49035d4c27,"{'City': 'Priceshire', 'Street': 'Curtis Mountains', 'House': '054'}","{'Shoes': 13, 'Jeans': 7, 'Shirts': 4}"
 1872b293-2b75-4a64-9a13-30be64998ddb,"{'City': 'Grayside', 'Street': 'Myers Stream', 'House': '75134'}","{'Shoes': 10, 'Jeans': 10, 'Shirts': 10}"
 1f2cda6e-4839-48ad-b7bb-863cda08a490,"{'City': 'New Yolandafurt', 'Street': 'Anthony Landing', 'House': '26312'}","{'Shoes': 6, 'Jeans': 8, 'Shirts': 2}"
 cb2c45cb-24a8-461c-9b5e-3eeda835c89e,"{'City': 'Ashleyton', 'Street': 'Williams Spur', 'House': '778'}","{'Shoes': 0, 'Jeans': 1, 'Shirts': 1}"
 a2f97e37-3c4a-4297-b713-d58699a56cb7,"{'City': 'Ulaanbaatar', 'Street': 'Main', 'House': '1'}","{'Shoes': 0, 'Jeans': 1, 'Shirts': 1}"
+UserID,Address,Purchases
+268afece-189e-474a-b59b-8f3b1fa4e666,"{'City': 'South Amanda', 'Street': 'Lynch Village', 'House': '97689'}","{'Shoes': 2, 'Jeans': 5, 'Shirts': 5}"
+fea9bf19-f994-477b-9e8f-d0129d4541a7,"{'City': 'Millerland', 'Street': 'Deborah Lock', 'House': '7656'}","{'Shoes': 12, 'Jeans': 7, 'Shirts': 4}"
+7b99b1f9-3974-4e95-b219-2b49035d4c27,"{'City': 'Priceshire', 'Street': 'Curtis Mountains', 'House': '054'}","{'Shoes': 13, 'Jeans': 7, 'Shirts': 4}"
 a37d91a6-5236-4a58-9490-a531c2dc8841,"{'City': 'East Michael', 'Street': 'Hamilton Squares', 'House': '02306'}","{'Shoes': 8, 'Jeans': 10, 'Shirts': 10}"
 db3a1a7e-9036-420e-a80e-861e35604406,"{'City': 'Zacharyville', 'Street': 'Mcdaniel Road', 'House': '91527'}","{'Shoes': 2, 'Jeans': 10, 'Shirts': 14}"
 a91471af-c1d3-461e-a736-f0b14db612cb,"{'City': 'Port Richardview', 'Street': 'Brown Lodge', 'House': '3369'}","{'Shoes': 9, 'Jeans': 7, 'Shirts': 2}"
+7b99b1f9-3974-4e95-b219-2b49035d4c27,Michael Miller,Lithuania,23,1271.72,Shoes,2023-06-14
+1872b293-2b75-4a64-9a13-30be64998ddb,Jennifer Vasquez,Senegal,24,1489.8899999999999,Jeans,2023-07-02
+1f2cda6e-4839-48ad-b7bb-863cda08a490,Michael Cook,Barbados,30,1166.38,Jeans,2023-06-27
+cb2c45cb-24a8-461c-9b5e-3eeda835c89e,Daniel Wolfe,Georgia,16,1115.56,Shirts,2023-02-11
