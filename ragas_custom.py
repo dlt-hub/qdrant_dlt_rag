@@ -506,6 +506,7 @@ class RagasMetric(BaseMetric):
 
         for metric in metrics:
             score = metric.measure(test_case)
+            print(metric, score)
             score_metadata[metric.__name__] = score
             if score == 0:
                 warnings_list.append(

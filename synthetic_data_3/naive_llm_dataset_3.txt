@@ -8,20 +8,6 @@ and this:
 
 [
     {
-        "UserID": "268afece-189e-474a-b59b-8f3b1fa4e666",
-        "Address": {
-            "City": "South Amanda",
-            "Street": "Lynch Village",
-            "House": "97689"
-        },
-        "Purchases": {
-            "Shoes": 2,
-            "Jeans": 5,
-            "Shirts": 5
-        }
-         
-    },
-    {
         "UserID": "fea9bf19-f994-477b-9e8f-d0129d4541a7",
         "Address": {
             "City": "Millerland",
@@ -47,12 +33,52 @@ and this:
             "Shirts": 4
         }
     }
-
+    {
+        "UserID": "1f2cda6e-4839-48ad-b7bb-863cda08a490",
+        "Address": {
+            "City": "New Yolandafurt",
+            "Street": "Anthony Landing",
+            "House": "26312"
+        },
+        "Purchases": {
+            "Shoes": 6,
+            "Jeans": 8,
+            "Shirts": 2
+        }
+         
+    },
+    {
+        "UserID": "cb2c45cb-24a8-461c-9b5e-3eeda835c89e",
+        "Address": {
+            "City": "Ashleyton",
+            "Street": "Williams Spur",
+            "House": "778"
+        },
+        "Purchases": {
+            "Shoes": 0,
+            "Jeans": 1,
+            "Shirts": 1
+        }
+         
+    },
+    {
+        "UserID": "a2f97e37-3c4a-4297-b713-d58699a56cb7",
+        "Address": {
+            "City": "Ulaanbaatar",
+            "Street": "Main",
+            "House": "1"
+        },
+        "Purchases": {
+            "Shoes": 0,
+            "Jeans": 1,
+            "Shirts": 1
+        }
+         
+    }
 
 ]
 
 
 this too:
 UserID,SpendOnShoes,SpendOnJeans,SpendOnShirts,Feedback,Personality
-268afece-189e-474a-b59b-8f3b1fa4e666,184.75,17.98,148.76,Really satisfied with the quality and durability.,Friendly and always has a smile.
 fea9bf19-f994-477b-9e8f-d0129d4541a7,120.15,276.11,213.82,The colors are vibrant and the fit is perfect!,"A bit reserved, but very polite."

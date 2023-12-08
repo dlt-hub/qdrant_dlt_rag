@@ -11,12 +11,12 @@ from sql_database import sql_database
 
 def json_csv_sql_pipeline():
     # Json
-    with open("./synthetic_data_3/structured_dataset_2.json", 'rb') as file:
+    with open("./synthetic_data_4/structured_dataset_2.json", 'rb') as file:
         data_json = json.load(file)
     df_json = pd.json_normalize(data_json, sep='_')
 
     # Csv 
-    df_csv = pd.read_csv("synthetic_data_3/structured_dataset_3.csv")
+    df_csv = pd.read_csv("synthetic_data_4/structured_dataset_3.csv")
 
     # Sql
     source = sql_database(schema='public')

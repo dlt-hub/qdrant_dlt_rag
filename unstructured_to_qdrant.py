@@ -52,27 +52,28 @@ def load_and_process_documents(file_path: Optional[str] = None):
     docs = text_splitter.split_documents(documents)
 
     print("here is the lenght of the docs", len(docs))
-    # logging.info(f"Documents split into chunks: {docs}")
-    #
-    # embeddings = OpenAIEmbeddings()
-    #
-    # qdrant_client_url = os.getenv('QDRANT_CLIENT')
-    # qdrant_api_key = os.getenv('QDRANT_KEY')
-    #
-    # if not qdrant_client_url or not qdrant_api_key:
-    #     logging.error("QDRANT_CLIENT or QDRANT_KEY environment variables not set.")
-    #     return None
-    #
-    # qdrant = Qdrant.from_documents(
-    #     docs,
-    #     embeddings,
-    #     url=qdrant_client_url,
-    #     prefer_grpc=True,
-    #     api_key=qdrant_api_key,
-    #     collection_name=file_path,
-    # )
-    #
-    # return qdrant
+
+    logging.info(f"Documents split into chunks: {docs}")
+    
+    embeddings = OpenAIEmbeddings()
+    
+    qdrant_client_url = os.getenv('QDRANT_CLIENT')
+    qdrant_api_key = os.getenv('QDRANT_KEY')
+    
+    if not qdrant_client_url or not qdrant_api_key:
+        logging.error("QDRANT_CLIENT or QDRANT_KEY environment variables not set.")
+        return None
+    
+    qdrant = Qdrant.from_documents(
+         docs,
+         embeddings,
+         url=qdrant_client_url,
+         prefer_grpc=True,
+         api_key=qdrant_api_key,
+         collection_name=file_path,
+    )
+    
+    return qdrant
 
 
 

@@ -68,6 +68,51 @@ def nested_json_pipeline():
     )
     print(info)  
 
+def nested_json_pipeline():
+    # Json
+    with open("./synthetic_data_3/structured_dataset_2.json", 'rb') as file:
+        data_json = json.load(file)
+    df_json = pd.json_normalize(data_json, sep='_')
+
+    # Sql
+    source = sql_database(schema='public')
+    table_list = source.resources['base']
+    df_sql = pd.DataFrame(table_list)
+
+    merged_sql_json = pd.merge(df_json, df_sql, on="UserID", how="outer")
+    data = merged_sql_json.to_dict(orient="records")
+
+    column_names = merged_sql_json.columns.tolist()
+
+
+
+
+
+
+
+
+    # Define your pipeline
+    pipeline = dlt.pipeline(
+        pipeline_name='qdrant_pipeline', destination='qdrant', dataset_name='structured_dataset_2'
+    )
+
+    # Load your data
+    info = pipeline.run(
+        qdrant_adapter(
+            data,
+            embed=["Whatever columns you want"],
+        )
+    )
+
+
+
+
+
+
+
+    print(info)  
+
+
 if __name__ == "__main__":
     #sql_json_pipeline()
     nested_json_pipeline()

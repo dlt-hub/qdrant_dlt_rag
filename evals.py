@@ -1,13 +1,10 @@
 import logging
 from typing import Dict, Tuple, Optional
 
-from deepeval.dataset import EvaluationDataset
 from openai import OpenAI
-from deepeval.metrics import  AnswerRelevancyMetric
+from ragas_custom import  RagasMetric
 
-from deepeval.evaluator import run_test, assert_test
 from deepeval.test_case import LLMTestCase
-from deepeval.evaluator import TestResult
 from dotenv import load_dotenv
 load_dotenv()
 import os
@@ -18,6 +15,21 @@ from qdrant_client import QdrantClient
 QDRANT_CLIENT = os.getenv('QDRANT_CLIENT')
 QDRANT_KEY = os.getenv('QDRANT_KEY')
 
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.vectorstores.qdrant import Qdrant
+
+from ragas.metrics import AnswerSimilarity
+answer_similarity = AnswerSimilarity()
+from datasets import Dataset
+
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
+from sentence_transformers.cross_encoder import CrossEncoder
+
+def semanticSimilarityCrossEncode(actual_output = str, expected_answer = str):
+    model = CrossEncoder('cross-encoder/stsb-roberta-large')
+    scores = model.predict([[actual_output, expected_answer]])
+    return scores
 
 
 def qdrant_client(collection_name:str="detailed_info_content", original_query:str="Who is an avid reader and writer?"):
@@ -30,9 +42,9 @@ def qdrant_client(collection_name:str="detailed_info_content", original_query:st
         collection_name=collection_name,
         query_text=original_query
     )
+
+
     return result
-
-
 
 def generate_chatgpt_output(query: str, context: str = None, api_key=None, model_name="gpt-3.5-turbo"):
     """
@@ -74,7 +86,6 @@ def generate_chatgpt_output(query: str, context: str = None, api_key=None, model
 
 def eval_test(
     query=None,
-    output=None,
     expected_output=None,
     context=None,
     qdrant_collection_name=None,
@@ -82,27 +93,47 @@ def eval_test(
     logging.info("Generating chatgpt output")
     if context is None:
         try:
-            context = qdrant_client(collection_name=qdrant_collection_name, original_query=query)
+            try:
+                context = qdrant_client(collection_name=qdrant_collection_name, original_query=query)
+            except:
+                embeddings = OpenAIEmbeddings(model="text-embedding-ada-002", openai_api_key=OPENAI_API_KEY)
+                qdrant_client_url = os.getenv('QDRANT_CLIENT')
+                qdrant_api_key = os.getenv('QDRANT_KEY')
+
+                if not qdrant_client_url or not qdrant_api_key:
+                    logging.error("QDRANT_CLIENT or QDRANT_KEY environment variables not set.")
+                    return None
+                client = QdrantClient(api_key=qdrant_api_key, url=qdrant_client_url)
+                qdrant = Qdrant(client, qdrant_collection_name, embeddings)
+                context = qdrant.search(query=query, search_type="similarity")
         except:
             pass
 
     result_output = generate_chatgpt_output(query, str(context))
 
     logging.info("Moving on with chatgpt output")
+
     test_case = LLMTestCase(
         input=str(query),
         actual_output=str(result_output),
         expected_output=str(expected_output),
         retrieval_context=[str(context)],
     )
-    metric = AnswerRelevancyMetric()
+    metric = RagasMetric()
     metric.measure(test_case)
-    print(metric.score)
-    return metric.score
+    
+    return metric.score, result_output
 
 qa_pairs_example = {
-    "What is the capital of France?": ("Paris", None),
-    "Who wrote 'To Kill a Mockingbird'?": ("Harper Lee", None),
+    #"In which city does Tiffany Morales live?": "Tiffany Morales lives in Ronaldside",
+    "Where does Andrew Knox live and what is his spending history?": 
+    "Andrew Knox lives in Bolivia. His spending history shows that he has made 12 purchases with a total spend of 351.49. His primary type of purchases is jeans, and his last purchase date was on October 22, 2023.",
+    #"Tell me everything about Andrew Knox.": 
+    #"Andrew Knox is a customer who resides in South Amanda, Bolivia. His address is 97689 Lynch Village. He has made a total of 12 purchases, with 5 purchases of jeans, 5 purchases of shirts, and 2 purchases of shoes. His last purchase was on October 22, 2023. Andrew's primary type of purchases is jeans.In terms of spending, Andrew has spent $17.98 on jeans, $148.76 on shirts, and $184.75 on shoes, making his total spend amount to $351.49. His feedback about the products is that he is really satisfied with the quality and durability.Andrew is described as a friendly person who always has a smile. He is a loyal customer and visits the store frequently.",
+    "Where does Andrew Knox live, what's his spending history and what kind of a customer is he?":
+    "Andrew Knox is a customer who resides in South Amanda, Bolivia. His address is 97689 Lynch Village. He has made a total of 12 purchases, with 5 purchases of jeans, 5 purchases of shirts, and 2 purchases of shoes. His last purchase was on October 22, 2023. Andrew's primary type of purchases is jeans.In terms of spending, Andrew has spent $17.98 on jeans, $148.76 on shirts, and $184.75 on shoes, making his total spend amount to $351.49. His feedback about the products is that he is really satisfied with the quality and durability. Andrew is described as a friendly person who always has a smile. He is a loyal customer and visits the store frequently.",
+    #"What's the name of customer who is the most dissatisfied with our products and why?": "Bradley Tanner"
+    # "Who wrote 'To Kill a Mockingbird'?": "Harper Lee",
     # "What is the chemical formula for water?": ("H2O", None),
     # "Who painted the Mona Lisa?": ("Leonardo da Vinci", None),
     # "What is the speed of light?": ("299,792,458 meters per second", None),
@@ -115,9 +146,8 @@ qa_pairs_example = {
 }
 
 
-import os
 
-def process_collection(dataset, collection_type=None):
+def process_collection(dataset, collection_type):
     """
     Process a collection based on the specified collection type. If the collection type is not provided,
     it defaults to iterating through known types.
@@ -129,46 +159,32 @@ def process_collection(dataset, collection_type=None):
     Returns:
     Tuple of file name and file content.
     """
-    if collection_type:
+    if collection_type == 'naive_llm':
         file_number = dataset["dataset"]
         file_name = f"{collection_type}_dataset_{file_number}.txt"
-        file_path = os.path.join("synthetic_data", file_name)
-        with open(file_path, 'r') as file:
-            file_content = file.read()
-            return file_name, file_content
-
-    # Default iteration when collection_type is not provided
-    for ctype in ["naive_llm", "unstructured", "structured"]:
-        file_number = dataset["dataset"]
-        file_name = f"{ctype}_dataset_{file_number}.txt"
-        file_path = os.path.join("synthetic_data", file_name)
+        file_path = os.path.join("synthetic_data_3", file_name)
         try:
             with open(file_path, 'r') as file:
                 file_content = file.read()
                 return file_name, file_content
         except FileNotFoundError:
-            continue
+            raise ValueError("Unable to find the file for the 'naive_llm' collection type.")
 
-    raise ValueError("Unable to process the dataset with given collection types")
+    elif collection_type == 'unstructured':
+        collection_name = collection_type + "_dataset_" + str(dataset["dataset"]) + ".txt"
+    else:
+        collection_name = collection_type + "_dataset_" + str(dataset["dataset"]) + "_content"
 
+    print(collection_name)    
+    return collection_name, None
 
 
 def evaluate_qa_pairs(
     qa_pairs: Dict[str, Tuple[str, Optional[str]]],
     collections: list,
     specific_collection_type: str = None):
-    """
-    Evaluates QA pairs against provided collections. Optionally, evaluates against a specific collection type.
 
-    Parameters:
-    - qa_pairs (Dict): A dictionary of question-answer pairs.
-    - collections (list): A list of collections to evaluate against.
-    - specific_collection_type (str, optional): Specific collection type to evaluate against.
-      If None, evaluates against all types in the collections list.
 
-    Returns:
-    - List of dictionaries containing evaluation results.
-    """
     results = []
     for collection in collections:
         for collection_type, datasets in collection.items():
@@ -176,28 +192,35 @@ def evaluate_qa_pairs(
                 continue
 
             for dataset in datasets:
-                file_name, context = process_collection(dataset, collection_type)
-                for query, (expected_output, retrieval_context) in qa_pairs.items():
-                    score = eval_test(query, expected_output, context, collection_type)
+                file_or_collection_name, context = process_collection(dataset, collection_type)
+                for query, expected_output in qa_pairs.items():
+                    ragas_score, actual_output = eval_test(query, expected_output, context, file_or_collection_name)
+                    semantic_similarity_cross_encoder = semanticSimilarityCrossEncode(actual_output, expected_output)
+
                     result_details = {
                         "question": query,
                         "expected_answer": expected_output,
-                        "score": score,
-                        "file_name": file_name,
+                        "actual_answer": actual_output,
+                        "similarity score cross ecnoder": semantic_similarity_cross_encoder,
+                        "file_or_collection_name": file_or_collection_name,
                         "eval_type": collection_type
                     }
                     results.append(result_details)
     return results
 
-
-
 collections = [
-    {"naive_llm": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]},
-    {"unstructured": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]},
-    # {"structured": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]}
+    #{"naive_llm": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]},
+    #{"unstructured": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]},
+    #{"structured": [{"dataset": 1}, {"dataset": 2}, {"dataset": 3}]},
+    {"naive_llm": [{"dataset": 3}]},
+    {"unstructured": [{"dataset": 3}]},
+    {"structured": [{"dataset": 3}]}
 ]
 
-# eval_test(query="What is the capital of France?", expected_output="Paris", qdrant_collection_name="naive_llm_dataset_1.txt")
 
-evaluate_qa_pairs(qa_pairs_example, collections)
+results = evaluate_qa_pairs(qa_pairs_example, collections)
 
+
+# Write the string to a text file
+with open('results.txt', 'w') as text_file:
+    text_file.write(str(results))
