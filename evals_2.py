@@ -3,9 +3,8 @@ from typing import Dict, Tuple, Optional
 
 from deepeval.dataset import EvaluationDataset
 from openai import OpenAI
-from deepeval.metrics import  AnswerRelevancyMetric
+from ragas_custom import  RagasMetric
 
-from deepeval.metrics import  RagasMetric
 
 from deepeval.evaluate import run_test, assert_test
 from deepeval.test_case import LLMTestCase
@@ -117,7 +116,7 @@ def eval_test(
         expected_output=str(expected_output),
         retrieval_context=[str(context)],
     )
-    metric = AnswerRelevancyMetric()
+    metric = RagasMetric()
     metric.measure(test_case)
     
     context_precision = ContextualPrecisionMetric()
